@@ -14,6 +14,7 @@
 \usepackage{paralist,ragged2e,datetime}
 \usepackage{hyperref,fancyhdr,enumitem,color}
 \usepackage[centering]{geometry}
+\usepackage{fontspec}
 \usepackage{fontawesome}
 \usepackage[compact,small,sf,bf]{titlesec}
 
@@ -24,14 +25,14 @@
 %% If you don't use git or the vc package (from CTAN), comment this out.
 %% If you comment it out, be sure to remove the \rfoot comment below, too.
 %% See vc manual to compile with xelatex -enable-write18 vita
-\immediate\write18{vc.sh}
-\input{vc}
+%\immediate\write18{vc.sh}
+%\input{vc}
 
 %% ------------------------------------------------------------------------
 %% Fonts and colours
 %% ------------------------------------------------------------------------
 %% needed for xelatex to work
-\usepackage{fontspec}
+
 \usepackage{xunicode}
 
 %% color for the links 
@@ -45,8 +46,8 @@
 %% and is worth every penny. Any good monospace font will work fine, though.
 %% Consolas or inconsolata are good alternatives.
 \setromanfont[Mapping={tex-text},Numbers={OldStyle},Ligatures={Common}]{Minion Pro} 
-\setsansfont[Mapping=tex-text,Colour=ImperialBlue]{Myriad Pro}
-\setmonofont[Mapping=tex-text,Scale=0.9]{Avenir Next Condensed Regular} % Consolas, Pragmata, Lucida Console
+\setsansfont[Mapping=tex-text,Colour=ImperialBlue]{Minion Pro}
+\setmonofont[Mapping=tex-text,Scale=0.9]{Inconsolata} % Consolas, Pragmata, Lucida Console
 
 %% ------------------------------------------------------------------------
 %% Header and footer
@@ -58,14 +59,14 @@
 
 % What use is a commit number?
 %\newcommand{\gitinfo}{\textcolor{Gray}{\texttt{\scriptsize \VCRevision\ on \VCDateTEX}}}
-\newcommand{\gitinfo}{\textcolor{Gray}{\texttt{\scriptsize Last updated \VCDateTEX}}}
+%\newcommand{\gitinfo}{\textcolor{Gray}{\texttt{\scriptsize Last updated \VCDateTEX}}}
 
 % Style for the front page
 \fancypagestyle{myplain}{%
   \fancyhf{}
   \renewcommand\headrulewidth{0pt}
   \renewcommand\footrulewidth{0pt}
-  \fancyfoot[R]{\gitinfo}
+%  \fancyfoot[R]{\gitinfo}
 }
 
 % Style for the other pages
@@ -201,7 +202,7 @@
 \DeclareFieldFormat[incollection]{pages}{\lowercase{pp.}#1}
 \DeclareFieldFormat[article]{volume}{\mkbibbold{#1}}
 \DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
-\DeclareFieldFormat[article]{title}{\MakeCapital{#1}}
+% \DeclareFieldFormat[article]{title}{\MakeCapital{#1}}
 \DeclareFieldFormat[article]{url}{}
 \DeclareFieldFormat[inproceedings]{title}{#1}
 \DeclareFieldFormat{shorthandwidth}{#1}
@@ -213,8 +214,8 @@
 
 % Remove In: for an article.
 \renewbibmacro{in:}{%
-  \ifentrytype{article}{}{%
-  \printtext{\bibstring{in}\intitlepunct}}}
+ \ifentrytype{article}{}{%
+ \printtext{\bibstring{in}\intitlepunct}}}
 
 % Bibliography categories
 \def\makebibcategory#1#2{\DeclareBibliographyCategory{#1}\defbibheading{#1}{\subsection*{#2}}}
